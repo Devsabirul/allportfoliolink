@@ -37,40 +37,43 @@
     <div class="row">
         <div class="col-lg-8 col-md-8 col-6">
             <div class="wrap">
-                {% for blog in blogs %}
-                    <div class="blog_content mb-5">
-                        <div class="img_section">
-                            <img src="{{blog.picture.url}}" alt="{{blog.picture.url}}">
-                        </div>
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <p>Author</p>
-                                    <h6> {{blog.author}} </h6>
-                                    <h6> {{blog.date}} </h6>
-                                   
+                {% if not blogs|length == 0 %}
+                    {% for blog in blogs %}
+                        <div class="blog_content mb-5">
+                            <div class="img_section">
+                                <img src="{{blog.picture.url}}" alt="{{blog.picture.url}}">
+                            </div>
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p>Author</p>
+                                        <h6> {{blog.author}} </h6>
+                                        <h6> {{blog.date}} </h6>
+                                    
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Links</p>
+                                        <a href="{{blog.url}}" target="blank">Live Demo</a> <br>
+                                        <a href="{{blog.code_link}}" target="blank">Download Code</a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Made with</p>
+                                        <h6>{{blog.made_with}}</h6>
+                                    </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <p>Links</p>
-                                    <a href="{{blog.url}}" target="blank">Live Demo</a> <br>
-                                    <a href="{{blog.code_link}}" target="blank">Download Code</a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <p>Made with</p>
-                                    <h6>{{blog.made_with}}</h6>
+                                <div class="row mt-3">
+                                    <div class="col-lg-12">
+                                        <p><u>About a code</u> </p>
+                                        <h3>{{blog.title}}</h3>
+                                        <p class="discription">{{blog.description | safe}}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-lg-12">
-                                    <p><u>About a code</u> </p>
-                                    <h3>{{blog.title}}</h3>
-                                    <p class="discription">{{blog.description | safe}}</p>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                {% endfor %}
-                
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">Empty blog...</p>
+                {% endif %}                
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-6">
