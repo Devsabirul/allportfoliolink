@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% block title %}Home | shishir{% endblock title %}
+{% block socailmedialink %}
+    {% for src in src %}
+        <a target="blank_" href="{{src.fb}}">
+            <!-- Facebook -->
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a target="blank_" href="{{src.twitter}}">
+            <!-- Twitter -->
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a target="blank_" href="{{src.instagram}}">
+            <!-- Instagram -->
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a target="blank_" href="{{src.linkedin}}">
+            <!-- Linkedin -->
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a target="blank_" href="{{src.youtube}}">
+            <!-- Youtube -->
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a target="blank_" href="{{src.github}}">
+            <!-- Github -->
+            <i class="fab fa-github"></i>
+        </a>
+        <a target="blank_" href="{{src.whatsapp}}">
+            <!-- Whatsapp -->
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    {% endfor %}
+{% endblock socailmedialink %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-6">
+            <div class="wrap">
+                {% for blog in blogs %}
+                    <div class="blog_content mb-5">
+                        <div class="img_section">
+                            <img src="{{blog.picture.url}}" alt="{{blog.picture.url}}">
+                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p>Author</p>
+                                    <h6> {{blog.author}} </h6>
+                                    <h6> {{blog.date}} </h6>
+                                   
+                                </div>
+                                <div class="col-lg-4">
+                                    <p>Links</p>
+                                    <a href="{{blog.url}}" target="blank">Live Demo</a> <br>
+                                    <a href="{{blog.code_link}}" target="blank">Download Code</a>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p>Made with</p>
+                                    <h6>{{blog.made_with}}</h6>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-lg-12">
+                                    <p><u>About a code</u> </p>
+                                    <h3>{{blog.title}}</h3>
+                                    <p class="discription">{{blog.description | safe}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-6">
+            <div class="">
+                <form class="d-flex" role="search">
+                    <div class="input-group form_ mb-3">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="categories">
+                <p>CATEGORIES</p>
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-html5"></i> &nbsp; HTML</a> </li>
+                    <li><a href=""><i class="fa-brands fa-css3"></i> &nbsp; CSS</a> </li>
+                    <li><a href=""><i class="fa-brands fa-square-js"></i> &nbsp; Javascript</a> </li>
+                    <li><a href=""><i class="fa-brands fa-square-js"></i> &nbsp; Jquery</a> </li>
+                    <li><a href=""><i class="fa-brands fa-bootstrap"></i> &nbsp; Bootstrap</a> </li>
+                    <li><a href=""><i class="fa-brands fa-php"></i> &nbsp; PHP</a> </li>
+                    <li><a href=""><i class="fa-brands fa-wordpress"></i> &nbsp; Wordpress</a> </li>
+                    <li><a href=""><i class="fa-brands fa-node"></i> &nbsp; Node.js </a> </li>
+                    <li><a href=""><i class="fa-brands fa-react"></i> &nbsp; react.js </a> </li>
+                    <li><a href=""><i class="fa-brands fa-python"></i> &nbsp; Python </a> </li>
+                    <li><a href=""><i class="fa-brands fa-python"></i> &nbsp; Django </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
