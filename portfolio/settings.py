@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'core',
     'ckeditor',
     'cloudinary_storage',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -71,10 +72,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deirvssujhp8lu',
-        'USER': 'wxrghfdbkdgaec',
-        'PASSWORD': '0a3401ed106bbe93480315804b9683a7e7597e8ac97038538ec63c533d762c12',
-        'HOST': 'ec2-3-219-19-205.compute-1.amazonaws.com',
+        'NAME': 'd48rgfad7f1a5a',
+        'USER': 'qluoyhmqwtdhjb',
+        'PASSWORD': 'af6d0bb54cc5872118e509507623f1e7d205aa9b0122b342e7de660d0720ff93',
+        'HOST': 'ec2-44-205-177-160.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -134,3 +135,10 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 django_heroku.settings(locals())
+
+# Disable Browsable API
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
